@@ -1,12 +1,14 @@
 
 body{
 	margin: 0;
+	min-width: 980px;
 }
 header{
 	margin-top: 3px;
 	width: 100%;
 	position: relative;
 	height: 100px;
+	min-width: 980px;
 }
 
 nav{
@@ -241,11 +243,11 @@ hr{
 
 .main{
 	width: 100%;
-	margin-top: 97px;
-	position: relative;
+	position: absolute;
+	top: 50%;
 	width: 600px;
-	transform: translateX(-50%);
-	margin-left: 50%;
+	transform: translate(-50%, -50%);
+	left: 50%;
 }
 
 .logo{
@@ -308,10 +310,19 @@ hr{
 	right: -134px;
 }
 
-.claviatur{
+.keybord{
 	bottom: 2px;
 	right: -90px;
+	opacity: 0.8;
 }
+
+.keybord:hover{
+	opacity: 0.9;
+}
+
+ .keybord:active{
+ 	opacity: 1;
+ }
 
 .enters a:hover:before{
 	content: '';

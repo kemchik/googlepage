@@ -8,6 +8,8 @@ $(document).ready(function(){
 				$('.spisok').css('display', 'block');
 				$('.spisok+.spis_pointer').css('display', 'block');
 				$('#app').css('display', 'block');
+				$('.spisok').scrollTop(0);
+				$('.spisok').removeClass('morespisok');
 			}
 		} else {
 			if(e.target.id === 'app'){
@@ -18,9 +20,26 @@ $(document).ready(function(){
 		}
 	})
 
+	$('#li_earth').bind('mouseover', ()=>{
+		$('#li_earth>span:nth-child(2)').text('Планета Земля');
+	});
+
+	$('#li_earth').bind('mouseout', ()=>{
+		$('#li_earth>span:nth-child(2)').text('Планета Зе..');
+	});
+
 	$('#more').click(()=>{
 		$('.spisok').addClass('morespisok');
-		$('.spisok').scrollTop(266);
+
+		let scroll = 0;
+		let timerId = setInterval(function() {
+			scroll += 5
+		  $('.spisok').scrollTop(scroll);
+		  if(scroll >= 265){
+			 clearInterval(timerId);
+		  }
+		}, 3);		
+		
 	})
 
 	$('.spisok').bind('wheel', ()=>{
